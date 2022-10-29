@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2e2a4e1f-e465-4149-903e-86d527bd7a1f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="newFlow" doc:id="a66c916d-590f-4e61-a8b3-e78599719dc4" >
+		<http:listener doc:name="Listener" doc:id="8f7e21bf-6b1f-429f-b0d8-6c2c8911fcbb" config-ref="HTTP_Listener_config" path="/new"/>
+		<set-payload value="this is a project" doc:name="Set Payload" doc:id="caf5e75d-8508-402f-ac4d-35f0a69ca0e0" />
+		<logger level="INFO" doc:name="Logger" doc:id="9053a09d-ece7-45ab-a299-859440fbf309" message="first project"/>
+	</flow>
+</mule>
